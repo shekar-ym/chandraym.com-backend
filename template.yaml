@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  chandra.ym-backend
+  create/update and deploy backend DynamoDB table, Lambda and API Gateway using SAM
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+
+  myVisitorCountFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Lambda/
+      Handler: counterFunction.lambda_handler
+      Runtime: python3.8
+      Events:
+        myVisitorCount:
+          Type: Api
+          Properties:
+            Path: /visitorCount
+            Method: get
+      ### Environment variable to pass the DynamoDB table
+      Environment:
+        Variables: 
+          databaseName : !Ref tblVisitorCount
+      ### Policy Template for Lambda to access DynamoDB
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref tblVisitorCount
+      
+
+  tblVisitorCount:
+    Type: AWS::Serverless::SimpleTable
+
+Outputs:
+  myVisitorCountApi:
+    Description: "API Gateway endpoint URL for Prod stage for myVisitorCountFunction"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/visitorCount/"

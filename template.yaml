@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  chandra.ym-backend
+  chandraym.com backend
   create/update and deploy backend DynamoDB table, Lambda and API Gateway using SAM
 
 Resources:
@@ -35,5 +35,5 @@ Resources:
 
 Outputs:
   myVisitorCountApi:
-    Description: "API Gateway endpoint URL for Prod stage for myVisitorCountFunction"
+    Description: "API Gateway endpoint URL for Prod stage for Lambda function myVisitorCountFunction"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/visitorCount/"

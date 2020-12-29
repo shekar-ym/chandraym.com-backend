@@ -30,7 +30,7 @@ jobs:
           pip install moto boto3
         
       - name: Test
-        run: python -m pytest test_handler.py
+        run: python test_handler.py
       - name: Build
         run: sam build
       - name: Deploy

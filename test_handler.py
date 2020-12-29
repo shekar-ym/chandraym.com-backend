@@ -18,7 +18,7 @@ def do_test_setup():
 
 
 def set_up_dynamodb():
-    client = boto3.client('dynamodb', region_name='us-east-1')
+    client = boto3.client('dynamodb', region_name='ap-southeast-2')
     client.create_table(
         AttributeDefinitions=[
             {

@@ -1,5 +1,4 @@
 import boto3
-import pytest
 import os
 import json
 from contextlib import contextmanager

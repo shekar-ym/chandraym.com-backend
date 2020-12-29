@@ -3,7 +3,7 @@ import os
 import json
 from contextlib import contextmanager
 from moto import mock_dynamodb2
-from visitors_counter import app
+from Lambda import counterFunction
 from unittest import mock
 
 TABLE = "visitors"

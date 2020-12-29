@@ -44,7 +44,7 @@ def set_up_dynamodb():
 def test_handler():
     with do_test_setup():
         # Run call with an event describing the file:
-        response = app.lambda_handler(None, None)
+        response = counterFunction.lambda_handler(None, None)
 
         # Check that it exists in `processed/`
         assert response['statusCode'] == 200

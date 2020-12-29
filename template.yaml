@@ -24,7 +24,6 @@ Resources:
       Environment:
         Variables: 
           databaseName : !Ref tblVisitorCount
-          databaseType: "DynamoDB"
       ### Policy Template for Lambda to access DynamoDB
       Policies:
         - DynamoDBCrudPolicy:

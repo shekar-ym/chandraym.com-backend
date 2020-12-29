@@ -25,7 +25,7 @@ jobs:
       - name: Install
         run: pip install -r ./Lambda/requirements.txt
       - name: Test
-        run: pytest test_handler.py
+        run: python -m pytest test_handler.py
       - name: Build
         run: sam build
       - name: Deploy

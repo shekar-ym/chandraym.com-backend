@@ -34,4 +34,4 @@ jobs:
       - name: Build
         run: sam build
       - name: Deploy
-        run: sam deploy --no-fail-on-empty-changeset
+        run: sam deploy  --debug \ --no-fail-on-empty-changeset
